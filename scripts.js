@@ -263,21 +263,23 @@ applyLang();
       body: JSON.stringify(payload)
     })
     .then(function (r) {
-      console.log("[FormSubmit] status", r.status, r.statusText);
-      return r.text().then(function (txt) {
-        console.log("[FormSubmit] body", txt);
-        return { ok: r.ok, status: r.status, body: txt };
+      return r.json().then(function (data) {
+        return { ok: r.ok, status: r.status, data: data };
+      }).catch(function () {
+        return { ok: r.ok, status: r.status, data: null };
       });
     })
     .then(function (res) {
-      // FormSubmit retorna 2xx quando aceita o envio (mesmo na ativação inicial).
-      // Não vou checar campos do JSON — confio no status HTTP.
-      if (res.ok) {
+      console.log("[FormSubmit] status", res.status, "data", res.data);
+      // FormSubmit retorna HTTP 200 mesmo em casos de ativação pendente / captcha.
+      // O sucesso real está no campo data.success === "true".
+      var ok = res.data && (res.data.success === "true" || res.data.success === true);
+      if (ok) {
         result.innerHTML = ''
           + '<strong>Recebemos seu contato! 🎉</strong>'
           + '<p class="nc-text">Avisamos assim que a Algar chegar na sua região, ' + name.split(" ")[0] + '.</p>';
       } else {
-        console.warn("[FormSubmit] resposta não-OK:", res.status, res.body);
+        console.warn("[FormSubmit] envio não confirmado:", res.data && res.data.message);
         showLeadError(submitBtn, origBtnHtml);
       }
     })
