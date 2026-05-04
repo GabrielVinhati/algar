@@ -263,23 +263,31 @@ applyLang();
       body: JSON.stringify(payload)
     })
     .then(function (r) {
-      return r.json().then(function (data) {
-        return { ok: r.ok, status: r.status, data: data };
-      }).catch(function () {
-        return { ok: r.ok, status: r.status, data: null };
+      return r.text().then(function (txt) {
+        var data = null;
+        try { data = JSON.parse(txt); } catch (e) {}
+        return { ok: r.ok, status: r.status, body: txt, data: data };
       });
     })
     .then(function (res) {
-      console.log("[FormSubmit] status", res.status, "data", res.data);
-      // FormSubmit retorna HTTP 200 mesmo em casos de ativação pendente / captcha.
-      // O sucesso real está no campo data.success === "true".
-      var ok = res.data && (res.data.success === "true" || res.data.success === true);
+      console.log("[FormSubmit] status:", res.status, "ok:", res.ok);
+      console.log("[FormSubmit] body:", res.body);
+      // Sucesso pode aparecer de 3 formas (em ordem de preferência):
+      // 1. JSON parsed: data.success === "true" (string) ou true (boolean)
+      // 2. Body cru contém "success":"true" (caso JSON.parse falhe por algum motivo)
+      // 3. Status 2xx + body mencionando "success" (último recurso)
+      var ok = false;
+      if (res.data && (res.data.success === "true" || res.data.success === true)) {
+        ok = true;
+      } else if (typeof res.body === "string" && res.body.indexOf('"success":"true"') >= 0) {
+        ok = true;
+      }
       if (ok) {
         result.innerHTML = ''
           + '<strong>Recebemos seu contato! 🎉</strong>'
           + '<p class="nc-text">Avisamos assim que a Algar chegar na sua região, ' + name.split(" ")[0] + '.</p>';
       } else {
-        console.warn("[FormSubmit] envio não confirmado:", res.data && res.data.message);
+        console.warn("[FormSubmit] envio não confirmado. data:", res.data, "body:", res.body);
         showLeadError(submitBtn, origBtnHtml);
       }
     })
