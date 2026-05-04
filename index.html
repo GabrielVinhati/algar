@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <title>Algar Fibra Rapida</title>
+  <meta name="description" content="Internet de alta velocidade com a melhor cobertura da região." />
+  <meta name="author" content="Algar Telecom" />
+  <meta property="og:title" content="Algar Fibra Rápida" />
+  <meta property="og:description" content="Internet de alta velocidade com a melhor cobertura da região." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4273814072859036');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=4273814072859036&ev=PageView&noscript=1"
+    /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18119099616"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18119099616');
+  </script>
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18119099616/wPrYCKvU0KMcEOCJ7r9D',
+        'value': 1.0,
+        'currency': 'BRL',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== CSS VARIABLES / THEME ===== */
+    :root {
+      --bg: #ffffff;
+      --fg: hsl(210, 20%, 15%);
+      --card: hsl(160, 20%, 97%);
+      --card-fg: hsl(210, 20%, 15%);
+      --primary: hsl(160, 55%, 40%);
+      --primary-fg: #ffffff;
+      --secondary: hsl(160, 20%, 95%);
+      --secondary-fg: hsl(160, 30%, 25%);
+      --muted-fg: hsl(210, 10%, 46%);
+      --border: hsl(210, 13%, 90%);
+      --accent: hsl(160, 20%, 93%);
+      --accent-fg: hsl(210, 20%, 15%);
+      --algar-yellow: hsl(42, 95%, 55%);
+      --algar-teal: hsl(175, 50%, 42%);
+      --radius: 0.75rem;
+      --font: 'Outfit', system-ui, -apple-system, sans-serif;
+    }
+    .dark {
+      --bg: hsl(210, 20%, 7%);
+      --fg: hsl(210, 20%, 95%);
+      --card: hsl(210, 18%, 11%);
+      --card-fg: hsl(210, 20%, 95%);
+      --primary: hsl(160, 55%, 45%);
+      --primary-fg: #ffffff;
+      --secondary: hsl(210, 15%, 16%);
+      --secondary-fg: hsl(210, 20%, 90%);
+      --muted-fg: hsl(215, 15%, 55%);
+      --border: hsl(210, 15%, 18%);
+      --accent: hsl(210, 15%, 16%);
+      --accent-fg: hsl(210, 20%, 95%);
+      --algar-yellow: hsl(42, 95%, 60%);
+      --algar-teal: hsl(175, 50%, 48%);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; border-color: var(--border); }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 1rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulseRing { from { transform: scale(0); opacity: 0.6; } to { transform: scale(3); opacity: 0; } }
+    @keyframes pulseRing2 { from { transform: scale(0); opacity: 0.4; } to { transform: scale(4); opacity: 0; } }
+    @keyframes spinIn { from { transform: scale(0) rotate(-180deg); } to { transform: scale(1) rotate(0); } }
+    @keyframes loadingBar { from { width: 0; } to { width: 100%; } }
+
+    .anim-fiu { animation: fadeInUp 0.6s ease-out both; }
+    .d1 { animation-delay: 0.15s; } .d2 { animation-delay: 0.3s; } .d3 { animation-delay: 0.45s; }
+    .d4 { animation-delay: 0.6s; } .d5 { animation-delay: 0.75s; } .d6 { animation-delay: 1.0s; }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-item { opacity: 0; transform: translateY(40px); transition: opacity 0.5s, transform 0.5s; }
+    .reveal-item.visible { opacity: 1; transform: none; }
+
+    /* ===== SPLASH ===== */
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg); transition: opacity 0.6s, transform 0.6s;
+    }
+    #splash.exit { opacity: 0; transform: scale(1.1); pointer-events: none; }
+    #splash .ring1, #splash .ring2 {
+      position: absolute; width: 160px; height: 160px; border-radius: 50%;
+      border: 1px solid var(--primary); opacity: 0;
+    }
+    #splash .ring1 { animation: pulseRing 2s ease-out 0.3s forwards; }
+    #splash .ring2 { animation: pulseRing2 2.5s ease-out 0.5s forwards; }
+    #splash .icon-box {
+      width: 80px; height: 80px; border-radius: 16px;
+      background: var(--primary); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25), 0 0 30px color-mix(in srgb, var(--primary) 40%, transparent);
+      animation: spinIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+    }
+    #splash .icon-box svg { width: 40px; height: 40px; stroke: var(--primary-fg); fill: none; }
+    #splash .brand { display: flex; align-items: baseline; gap: 8px; margin-top: 24px; opacity: 0; animation: fadeInUp 0.5s ease 0.4s both; }
+    #splash .brand .n1 { font-size: 1.875rem; font-weight: 900; background: linear-gradient(135deg, hsl(160,55%,40%), hsl(175,50%,42%)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    #splash .brand .n2 { font-size: 1.875rem; font-weight: 700; color: var(--fg); }
+    #splash .loading-track { width: 192px; height: 4px; border-radius: 4px; background: var(--border); overflow: hidden; margin-top: 24px; opacity: 0; animation: fadeIn 0.3s ease 0.6s both; }
+    #splash .loading-bar { height: 100%; border-radius: 4px; background: var(--primary); animation: loadingBar 1.2s ease-in-out 0.7s both; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+    }
+    .nav-inner { max-width: 1400px; margin: 0 auto; padding: 0 1rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    @media (min-width: 768px) { .nav-inner { padding: 0 1.25rem; height: 72px; } }
+    .nav-logo img { height: 32px; width: auto; }
+    @media (min-width: 768px) { .nav-logo img { height: 40px; } }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-cta {
+      padding: 9px 16px; border-radius: 9999px;
+      background: #25D366; color: #fff;
+      font-weight: 700; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 6px;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.32);
+    }
+    @media (min-width: 768px) { .nav-cta { padding: 10px 20px; gap: 8px; } }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37, 211, 102, 0.42); }
+    .nav-cta:active { transform: translateY(0); }
+    .nav-cta svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
+    .nav-cta .cta-full { display: none; }
+    .nav-cta .cta-short { display: inline; }
+    @media (min-width: 640px) { .nav-cta .cta-full { display: inline; } .nav-cta .cta-short { display: none; } }
+
+    /* ===== HERO ===== */
+    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: right; transform: translateX(8%); }
+    @media (min-width: 1024px) { .hero-bg img { transform: translateX(12%); } }
+    .hero-bg .overlay1 { position: absolute; inset: 0; background: linear-gradient(to right, var(--primary), var(--primary) 30%, color-mix(in srgb, var(--primary) 70%, transparent) 60%, color-mix(in srgb, var(--primary) 25%, transparent)); }
+    .hero-bg .overlay2 { position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in srgb, var(--primary) 30%, transparent), transparent, transparent); }
+    @media (min-width: 1024px) {
+      .hero-bg .overlay1 { background: linear-gradient(to right, var(--primary) 0%, var(--primary) 38%, color-mix(in srgb, var(--primary) 35%, transparent) 58%, transparent 78%); }
+      .hero-bg .overlay2 { display: none; }
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 1400px; margin: 0 auto; padding: 104px 1rem 80px; width: 100%; }
+    @media (min-width: 768px) { .hero-content { padding: 128px 1.25rem 96px; } }
+    .hero-inner { max-width: 720px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 9999px; border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(4px);
+      padding: 6px 16px; margin-bottom: 40px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 2s infinite; }
+    .hero-badge span { font-size: 0.875rem; font-weight: 500; color: #fff; }
+
+    .hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -0.025em; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+    .hero h1 .highlight { color: var(--secondary); }
+    @media (min-width: 480px) { .hero h1 { font-size: 2.5rem; line-height: 1.05; letter-spacing: -0.03em; } }
+    @media (min-width: 768px) { .hero h1 { font-size: 3.25rem; margin-bottom: 28px; } }
+    @media (min-width: 1024px) { .hero h1 { font-size: 4rem; } }
+
+    .hero .subtitle { font-size: 1rem; color: rgba(255,255,255,0.92); max-width: 576px; margin-bottom: 40px; line-height: 1.6; text-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+    @media (min-width: 768px) { .hero .subtitle { font-size: 1.125rem; margin-bottom: 56px; line-height: 1.65; } }
+
+    /* CEP */
+    .cep-wrap { max-width: 480px; margin-bottom: 56px; }
+    .cep-box {
+      display: flex; flex-direction: column; gap: 8px; padding: 6px; border-radius: 12px;
+      background: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    @media (min-width: 520px) { .cep-box { flex-direction: row; } }
+    .cep-input-g { position: relative; flex: 1; }
+    .cep-input-g svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: hsl(210, 10%, 50%); fill: none; }
+    .cep-input-g input { width: 100%; padding: 14px 16px 14px 40px; border-radius: 8px; background: transparent; color: hsl(210, 20%, 15%); font-size: 0.9375rem; border: none; outline: none; font-family: var(--font); }
+    .cep-input-g input::placeholder { color: hsl(210, 10%, 60%); }
+    .cep-btn {
+      padding: 14px 24px; border-radius: 8px;
+      background: hsl(210, 25%, 12%); color: #fff;
+      font-weight: 700; font-size: 0.9375rem; transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      width: 100%;
+    }
+    @media (min-width: 520px) { .cep-btn { width: auto; } }
+    .cep-btn:hover { background: hsl(210, 25%, 8%); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.3); }
+    .cep-btn:active { transform: translateY(0); }
+    .cep-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .cep-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+
+    .cep-result { margin-top: 16px; padding: 18px 20px; border-radius: 12px; font-size: 0.9375rem; display: none; line-height: 1.5; }
+    .cep-result.covered { display: block; background: rgba(255,255,255,0.97); border: 1px solid #fff; color: var(--fg); box-shadow: 0 12px 32px rgba(0,0,0,0.18); }
+    .cep-result.covered strong { color: var(--primary); font-size: 1rem; }
+    .cep-result.not-covered { display: block; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.32); color: #fff; }
+    .cep-result.not-covered strong { display: inline-block; font-size: 1.0625rem; margin-bottom: 6px; font-weight: 700; }
+    .cep-result .nc-text { color: rgba(255,255,255,0.92); margin-bottom: 14px; font-size: 0.875rem; }
+    .cep-result .nc-form { display: flex; flex-direction: column; gap: 8px; }
+    .cep-result .nc-form input {
+      padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.12); color: #fff; font-family: var(--font); font-size: 0.9375rem;
+      outline: none; transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .cep-result .nc-form input::placeholder { color: rgba(255,255,255,0.7); }
+    .cep-result .nc-form input:focus { border-color: #fff; background: rgba(255,255,255,0.18); }
+    .cep-result .nc-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; border-radius: 9999px; font-weight: 700; font-size: 0.9375rem;
+      background: #25D366; color: #fff; transition: transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 18px rgba(37,211,102,0.35); margin-top: 4px;
+    }
+    .cep-result .nc-submit:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37,211,102,0.45); }
+    .cep-result.nc-error .nc-form input { border-color: #ff8080; animation: shake 0.3s; }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+    .cep-result a { color: var(--primary); font-weight: 600; }
+    .cep-result a:hover { text-decoration: underline; }
+    .cep-result .see-plans-link { display: inline-block; margin-top: 6px; margin-left: 6px; font-size: 0.875rem; }
+    .cep-result .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+      padding: 11px 22px; border-radius: 9999px; font-weight: 700; font-size: 0.875rem;
+      background: #25D366; color: #fff; transition: transform 0.15s ease, box-shadow 0.2s ease; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(37,211,102,0.35);
+    }
+    .cep-result .whatsapp-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(37,211,102,0.45); text-decoration: none; }
+    .cep-result .whatsapp-btn svg { width: 18px; height: 18px; fill: #fff; }
+
+    /* Benefits */
+    .hero-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 640px; }
+    @media (min-width: 768px) { .hero-benefits { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+    .benefit { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+    .benefit .b-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.22);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .benefit:hover .b-icon { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+    .benefit .b-icon svg { width: 20px; height: 20px; color: #fff; }
+    .benefit p { font-size: 0.8125rem; color: rgba(255,255,255,0.92); line-height: 1.35; font-weight: 500; }
+
+    /* ===== PLANS ===== */
+    .plans { padding: 80px 0; background: linear-gradient(to bottom, var(--bg), color-mix(in srgb, var(--secondary) 30%, var(--bg))); }
+    @media (min-width: 768px) { .plans { padding: 112px 0; } }
+    .plans-header { text-align: center; margin-bottom: 48px; }
+    @media (min-width: 768px) { .plans-header { margin-bottom: 64px; } }
+    .plans-header .label { display: inline-block; color: var(--primary); font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 16px; }
+    @media (min-width: 640px) { .plans-header .label { font-size: 1.125rem; margin-bottom: 20px; } }
+    .plans-header h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.025em; padding: 0 8px; }
+    @media (min-width: 640px) { .plans-header h2 { font-size: 1.875rem; } }
+    @media (min-width: 768px) { .plans-header h2 { font-size: 3rem; } }
+    .plans-header p { color: var(--muted-fg); max-width: 576px; margin: 0 auto; font-size: 0.875rem; padding: 0 8px; }
+    @media (min-width: 640px) { .plans-header p { font-size: 1rem; } }
+    .plans-header strong { color: var(--primary); }
+
+    .plans-grid { display: grid; gap: 24px; max-width: 1152px; margin: 0 auto; align-items: center; }
+    @media (min-width: 768px) { .plans-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+    @media (min-width: 1024px) { .plans-grid { gap: 24px; } }
+
+    .plan-card {
+      position: relative; border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column; transition: all 0.3s;
+      background: var(--card); border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .plan-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.12); transform: translateY(-4px); }
+    .plan-card.highlight {
+      border: 2px solid var(--primary); box-shadow: 0 20px 40px color-mix(in srgb, var(--primary) 20%, transparent);
+      z-index: 10;
+    }
+    @media (min-width: 768px) { .plan-card.highlight { transform: scale(1.05); } }
+    @media (min-width: 1024px) { .plan-card.highlight { transform: scale(1.1); } }
+    .plan-card.highlight:hover { transform: scale(1.05) translateY(-4px); }
+    @media (min-width: 1024px) { .plan-card.highlight:hover { transform: scale(1.1) translateY(-4px); } }
+
+    .plan-popular-bar { background: var(--algar-yellow); color: var(--fg); text-align: center; padding: 10px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .plan-header { position: relative; padding: 24px; overflow: hidden; }
+    .plan-header.green { background: var(--primary); color: var(--primary-fg); }
+    .plan-header.default { background: var(--card); color: var(--fg); }
+    .plan-header-text { max-width: 100%; }
+    .plan-header-text .fiber-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .plan-header.green .fiber-label { color: rgba(255,255,255,0.9); }
+    .plan-header.default .fiber-label { color: var(--primary); }
+    .plan-speed-row { display: flex; align-items: baseline; gap: 6px; }
+    .plan-speed-row .number { font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; }
+    @media (min-width: 640px) { .plan-speed-row .number { font-size: 3.75rem; } }
+    .plan-speed-row .unit { font-size: 1.25rem; font-weight: 700; opacity: 0.9; }
+    .globoplay-badge {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+      padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 700;
+      background: var(--algar-yellow); color: var(--fg);
+    }
+    .plan-header.green .globoplay-badge { background: var(--algar-yellow); color: var(--fg); }
+    .plan-header.default .globoplay-badge { background: color-mix(in srgb, var(--algar-yellow) 90%, transparent); color: var(--fg); }
+
+    .plan-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+
+    .plan-pricing {
+      text-align: center; padding: 4px 0 20px; margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-pricing .from { font-size: 0.75rem; color: var(--muted-fg); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .plan-pricing .price-row { display: inline-flex; align-items: baseline; gap: 4px; }
+    .plan-pricing .currency { font-size: 1.125rem; font-weight: 700; color: var(--fg); }
+    .plan-pricing .amount { font-size: 4rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--fg); }
+    @media (min-width: 640px) { .plan-pricing .amount { font-size: 4.75rem; } }
+    .plan-pricing .price-decimals { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+    .plan-pricing .cents { font-size: 1.125rem; font-weight: 700; color: var(--fg); }
+    .plan-pricing .per-month { font-size: 0.8125rem; color: var(--muted-fg); font-weight: 500; }
+    .plan-pricing .debit-label { font-size: 0.8125rem; color: var(--primary); font-weight: 700; margin-top: 8px; }
+    .plan-pricing .alt-price { font-size: 0.75rem; color: var(--muted-fg); margin-top: 4px; }
+
+    .plan-benefits-label { text-align: center; color: var(--algar-yellow); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .plan-features { flex: 1; margin-bottom: 24px; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: color-mix(in srgb, var(--fg) 80%, transparent); margin-bottom: 12px; }
+    .plan-features li svg { width: 16px; height: 16px; stroke: var(--primary); fill: none; flex-shrink: 0; margin-top: 2px; }
+
+    .plan-cta {
+      display: block; text-align: center; padding: 14px; border-radius: 12px;
+      font-weight: 700; font-size: 0.875rem; transition: all 0.2s;
+    }
+    .plan-card.highlight .plan-cta { background: var(--primary); color: var(--primary-fg); box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 30%, transparent); }
+    .plan-card.highlight .plan-cta:hover { opacity: 0.9; }
+    .plan-card:not(.highlight) .plan-cta { background: var(--fg); color: var(--bg); }
+    .plan-card:not(.highlight) .plan-cta:hover { background: var(--primary); }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials { padding: 96px 0; background: color-mix(in srgb, var(--card) 50%, var(--bg)); }
+    @media (min-width: 768px) { .testimonials { padding: 128px 0; } }
+    .test-header { text-align: center; margin-bottom: 64px; }
+    .test-header .label { color: var(--primary); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.2em; }
+    .test-header h2 { font-size: 1.875rem; font-weight: 700; margin-top: 12px; margin-bottom: 20px; letter-spacing: -0.025em; }
+    @media (min-width: 768px) { .test-header h2 { font-size: 3rem; } }
+    .test-header p { color: var(--muted-fg); max-width: 448px; margin: 0 auto; }
+
+    .test-grid { display: grid; gap: 20px; max-width: 1152px; margin: 0 auto; }
+    @media (min-width: 768px) { .test-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .test-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .test-card {
+      border-radius: 16px; border: 1px solid var(--border); background: var(--bg); padding: 24px;
+      transition: all 0.3s;
+    }
+    .test-card:hover { border-color: color-mix(in srgb, var(--primary) 30%, transparent); box-shadow: 0 20px 40px color-mix(in srgb, var(--primary) 5%, transparent); transform: translateY(-4px); }
+    .test-card .quote-icon svg { width: 32px; height: 32px; stroke: color-mix(in srgb, var(--primary) 15%, transparent); fill: none; margin-bottom: 12px; }
+    .test-card .stars { display: flex; gap: 2px; margin-bottom: 16px; }
+    .test-card .stars svg { width: 14px; height: 14px; fill: var(--algar-yellow); stroke: var(--algar-yellow); }
+    .test-card .text { font-size: 0.875rem; color: var(--muted-fg); margin-bottom: 24px; line-height: 1.6; }
+    .test-card .author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .test-card .avatar { width: 36px; height: 36px; border-radius: 50%; background: color-mix(in srgb, var(--primary) 10%, transparent); display: flex; align-items: center; justify-content: center; }
+    .test-card .avatar span { font-size: 0.75rem; font-weight: 700; color: var(--primary); }
+    .test-card .author-name { font-weight: 600; font-size: 0.875rem; }
+    .test-card .author-city { font-size: 0.75rem; color: var(--muted-fg); }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner { position: relative; padding: 80px 0; overflow: hidden; }
+    .cta-banner .cta-bg { position: absolute; inset: 0; }
+    .cta-banner .cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .cta-banner .cta-bg .overlay { position: absolute; inset: 0; background: linear-gradient(to right, color-mix(in srgb, var(--primary) 90%, transparent), color-mix(in srgb, var(--algar-teal) 90%, transparent)); }
+    .cta-banner .cta-content { position: relative; z-index: 10; text-align: center; }
+    .cta-banner h2 { font-size: 1.875rem; font-weight: 700; color: var(--primary-fg); margin-bottom: 16px; }
+    @media (min-width: 768px) { .cta-banner h2 { font-size: 2.25rem; } }
+    .cta-banner p { color: rgba(255,255,255,0.8); max-width: 512px; margin: 0 auto 32px; font-size: 1.125rem; }
+    .cta-banner .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; border-radius: 12px;
+      background: var(--primary-fg); color: var(--primary);
+      font-weight: 700; font-size: 1rem; transition: all 0.2s; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .cta-banner .cta-btn:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.2); }
+    .cta-banner .cta-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; }
+
+    /* ===== FAQ ===== */
+    .faq { padding: 96px 0; background: color-mix(in srgb, var(--card) 50%, var(--bg)); }
+    @media (min-width: 768px) { .faq { padding: 128px 0; } }
+    .faq-header { text-align: center; margin-bottom: 64px; }
+    .faq-header .label { color: var(--primary); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.2em; }
+    .faq-header h2 { font-size: 1.875rem; font-weight: 700; margin-top: 12px; margin-bottom: 20px; letter-spacing: -0.025em; }
+    @media (min-width: 768px) { .faq-header h2 { font-size: 3rem; } }
+
+    .faq-list { max-width: 672px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { border-radius: 12px; border: 1px solid var(--border); background: var(--bg); padding: 0 24px; overflow: hidden; transition: all 0.3s; }
+    .faq-item.open { border-color: color-mix(in srgb, var(--primary) 30%, transparent); box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 5%, transparent); }
+    .faq-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 0; font-weight: 600; font-size: 0.875rem; text-align: left; color: var(--fg); transition: color 0.2s; }
+    .faq-trigger:hover { color: var(--primary); }
+    .faq-trigger svg { width: 16px; height: 16px; stroke: var(--muted-fg); fill: none; transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+    .faq-item.open .faq-trigger svg { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p { padding-bottom: 20px; font-size: 0.875rem; color: var(--muted-fg); line-height: 1.6; }
+
+    /* ===== FOOTER ===== */
+    .footer { border-top: 1px solid var(--border); background: color-mix(in srgb, var(--card) 80%, var(--bg)); padding: 40px 0; }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 16px; }
+    @media (min-width: 768px) { .footer-inner { flex-direction: row; } }
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-brand img { height: 32px; width: auto; }
+    .footer-brand .sub { font-size: 0.6875rem; color: var(--muted-fg); max-width: 200px; }
+    .footer-copy { font-size: 0.75rem; color: var(--muted-fg); }
+
+    #main-content { opacity: 0; transition: opacity 0.5s; }
+    #main-content.visible { opacity: 1; }
+
+    /* ===== FLOATING WHATSAPP ===== */
+    .floating-wa-wrap {
+      position: fixed; bottom: 20px; right: 20px; z-index: 40;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    @media (min-width: 768px) { .floating-wa-wrap { bottom: 28px; right: 28px; } }
+    .floating-wa-bubble {
+      background: #fff; color: hsl(210, 25%, 12%);
+      padding: 10px 16px; border-radius: 14px 14px 4px 14px;
+      font-size: 0.8125rem; font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      white-space: nowrap; position: relative;
+      animation: bubbleIn 0.5s ease 1.6s both, bubbleFloat 3s ease-in-out 2.2s infinite;
+    }
+    @media (min-width: 768px) { .floating-wa-bubble { font-size: 0.875rem; padding: 11px 18px; } }
+    @media (max-width: 360px) { .floating-wa-bubble { font-size: 0.75rem; padding: 8px 12px; } }
+    .floating-wa-bubble::after {
+      content: ""; position: absolute; bottom: -5px; right: 22px;
+      width: 12px; height: 12px; background: #fff; transform: rotate(45deg);
+      border-bottom-right-radius: 3px;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.04);
+    }
+    @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bubbleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+
+    .floating-wa {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: waPulse 2.4s ease-in-out infinite;
+    }
+    .floating-wa:hover { transform: scale(1.08); box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55); animation-play-state: paused; }
+    .floating-wa svg { width: 28px; height: 28px; fill: currentColor; }
+    @media (min-width: 768px) { .floating-wa { width: 60px; height: 60px; } .floating-wa svg { width: 30px; height: 30px; } }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+      50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 14px rgba(37, 211, 102, 0); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="ring1"></div>
+    <div class="ring2"></div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </div>
+      <div class="brand">
+        <span class="n1">Algar</span>
+        <span class="n2">Telecom</span>
+      </div>
+      <div class="loading-track"><div class="loading-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main-content">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="#inicio" class="nav-logo">
+          <img src="assets/algar-logo.svg" alt="Algar Telecom" />
+        </a>
+        <div class="nav-right">
+          <a href="#inicio" class="nav-cta" id="navCepCta" aria-label="Consultar CEP">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span class="cta-full">Consultar CEP</span>
+            <span class="cta-short">CEP</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-bg">
+        <img src="assets/hero-bg.jpg" alt="" width="1920" height="1080" />
+        <div class="overlay1"></div>
+        <div class="overlay2"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-inner">
+          <div class="hero-badge anim-fiu">
+            <div class="dot"></div>
+            <span data-i18n="hero.badge">Parceiro Autorizado Algar Telecom</span>
+          </div>
+
+          <h1 class="anim-fiu d1" data-i18n-html="hero.title">
+            Mais velocidade e <span class="highlight">estabilidade para sua casa</span>
+          </h1>
+
+          <p class="subtitle anim-fiu d2" data-i18n="hero.subtitle">
+            Fibra óptica real, suporte preparado e desempenho consistente todos os dias. Consulte a disponibilidade no seu endereço.
+          </p>
+
+          <div class="cep-wrap anim-fiu d3">
+            <div class="cep-box">
+              <div class="cep-input-g">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="cepInput" data-i18n-placeholder="hero.placeholder" placeholder="Digite seu CEP" maxlength="9" />
+              </div>
+              <button class="cep-btn" id="cepBtn" data-i18n="hero.button">
+                Consultar disponibilidade
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+            <div class="cep-result" id="cepResult"></div>
+          </div>
+
+          <!-- Benefits -->
+          <div class="hero-benefits anim-fiu d6">
+            <div class="benefit">
+              <div class="b-icon">
+                <!-- TV / 4K icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 2 12 7 7 2"/><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M9 13l3 2 3-2"/></svg>
+              </div>
+              <p data-i18n="hero.benefit1">Assista em 4K sem travar</p>
+            </div>
+            <div class="benefit">
+              <div class="b-icon">
+                <!-- Wi-Fi icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+              </div>
+              <p data-i18n="hero.benefit2">Wi-Fi para toda casa</p>
+            </div>
+            <div class="benefit">
+              <div class="b-icon">
+                <!-- Gamepad icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="3"/></svg>
+              </div>
+              <p data-i18n="hero.benefit3">Jogue com ping estável</p>
+            </div>
+            <div class="benefit">
+              <div class="b-icon">
+                <!-- Download arrow icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </div>
+              <p data-i18n="hero.benefit4">Downloads rápidos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section id="planos" class="plans">
+      <div class="container">
+        <div class="plans-header reveal">
+          <span class="label" data-i18n="plans.label">Planos</span>
+          <h2 data-i18n="plans.title">Escolha o melhor plano Algar para sua casa</h2>
+          <p data-i18n-html="plans.desc">Planos disponíveis na sua região já estão com <strong>R$10 de desconto</strong> no débito automático.</p>
+        </div>
+
+        <div class="plans-grid">
+          <!-- Plan 800 -->
+          <div class="plan-card reveal-item" style="transition-delay:0.15s">
+            <div class="plan-header default">
+              <div class="plan-header-text">
+                <p class="fiber-label">Internet Fibra</p>
+                <div class="plan-speed-row"><span class="number">800</span><span class="unit">MEGA</span></div>
+                <div class="globoplay-badge"><span style="font-size:0.875rem">+</span> globoplay</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <div class="plan-pricing">
+                <p class="from">Por</p>
+                <div class="price-row">
+                  <span class="currency">R$</span>
+                  <span class="amount">109</span>
+                  <span class="price-decimals"><span class="cents">,90</span><span class="per-month">/mês</span></span>
+                </div>
+                <p class="debit-label">no débito automático</p>
+                <p class="alt-price">ou R$ 119,90/mês</p>
+              </div>
+              <p class="plan-benefits-label">Benefícios:</p>
+              <ul class="plan-features">
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Download de até 800 Mbps</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Upload de alta performance</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi incluso</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Instalação grátis</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suporte 24h</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Ideal para famílias</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Globoplay incluso (padrão com anúncios)</li>
+              </ul>
+              <a href="#inicio" class="plan-cta" data-i18n="plans.cta">Consultar disponibilidade</a>
+            </div>
+          </div>
+
+          <!-- Plan 700 (Highlight) -->
+          <div class="plan-card highlight reveal-item" style="transition-delay:0.27s">
+            <div class="plan-popular-bar" data-i18n="plans.popular">Mais Escolhido</div>
+            <div class="plan-header green">
+              <div class="plan-header-text">
+                <p class="fiber-label">Internet Fibra</p>
+                <div class="plan-speed-row"><span class="number">700</span><span class="unit">MEGA</span></div>
+                <div class="globoplay-badge"><span style="font-size:0.875rem">+</span> globoplay</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <div class="plan-pricing">
+                <p class="from">Por</p>
+                <div class="price-row">
+                  <span class="currency">R$</span>
+                  <span class="amount">99</span>
+                  <span class="price-decimals"><span class="cents">,90</span><span class="per-month">/mês</span></span>
+                </div>
+                <p class="debit-label">no débito automático</p>
+                <p class="alt-price">ou R$ 109,90/mês</p>
+              </div>
+              <p class="plan-benefits-label">Benefícios:</p>
+              <ul class="plan-features">
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Download de até 700 Mbps</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Upload de alta performance</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi incluso</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Instalação grátis</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suporte 24h</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Globoplay incluso (padrão com anúncios)</li>
+              </ul>
+              <a href="#inicio" class="plan-cta" data-i18n="plans.cta">Consultar disponibilidade</a>
+            </div>
+          </div>
+
+          <!-- Plan 1 Giga -->
+          <div class="plan-card reveal-item" style="transition-delay:0.39s">
+            <div class="plan-header default">
+              <div class="plan-header-text">
+                <p class="fiber-label">Internet Fibra</p>
+                <div class="plan-speed-row"><span class="number">1</span><span class="unit">GIGA</span></div>
+                <div class="globoplay-badge"><span style="font-size:0.875rem">+</span> globoplay</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <div class="plan-pricing">
+                <p class="from">Por</p>
+                <div class="price-row">
+                  <span class="currency">R$</span>
+                  <span class="amount">139</span>
+                  <span class="price-decimals"><span class="cents">,90</span><span class="per-month">/mês</span></span>
+                </div>
+                <p class="debit-label">no débito automático</p>
+                <p class="alt-price">ou R$ 149,90/mês</p>
+              </div>
+              <p class="plan-benefits-label">Benefícios:</p>
+              <ul class="plan-features">
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Download de até 1 Gbps</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Upload ultra rápido</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Wi-Fi premium incluso</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Instalação grátis</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Suporte prioritário</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Streaming 4K e games</li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Globoplay incluso (padrão com anúncios)</li>
+              </ul>
+              <a href="#inicio" class="plan-cta" data-i18n="plans.cta">Consultar disponibilidade</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="depoimentos" class="testimonials">
+      <div class="container">
+        <div class="test-header reveal">
+          <span class="label" data-i18n="test.label">Depoimentos</span>
+          <h2 data-i18n="test.title">Quem conectou, aprovou</h2>
+          <p data-i18n="test.desc">Veja o que nossos clientes falam sobre a experiência.</p>
+        </div>
+        <div class="test-grid">
+          <div class="test-card reveal-item" style="transition-delay:0.15s">
+            <div class="quote-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg></div>
+            <div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="text">"Mudei pra Algar Telecom e a diferença foi absurda. Zero quedas, velocidade real. Melhor decisão que tomei!"</p>
+            <div class="author"><div class="avatar"><span>MS</span></div><div><p class="author-name">Marcos Silva</p><p class="author-city">Belo Horizonte, MG</p></div></div>
+          </div>
+          <div class="test-card reveal-item" style="transition-delay:0.25s">
+            <div class="quote-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg></div>
+            <div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="text">"Trabalho home office e preciso de estabilidade. Com a Algar, minhas reuniões nunca mais travaram."</p>
+            <div class="author"><div class="avatar"><span>CO</span></div><div><p class="author-name">Camila Oliveira</p><p class="author-city">Contagem, MG</p></div></div>
+          </div>
+          <div class="test-card reveal-item" style="transition-delay:0.35s">
+            <div class="quote-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg></div>
+            <div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="text">"O ping caiu muito depois que troquei. Faço lives e videochamadas sem travar."</p>
+            <div class="author"><div class="avatar"><span>RC</span></div><div><p class="author-name">Rafael Costa</p><p class="author-city">Juiz de Fora, MG</p></div></div>
+          </div>
+          <div class="test-card reveal-item" style="transition-delay:0.45s">
+            <div class="quote-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3z"/></svg></div>
+            <div class="stars"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="text">"Atendimento impecável e instalação super rápida. Em menos de 24h já estava navegando na fibra."</p>
+            <div class="author"><div class="avatar"><span>AP</span></div><div><p class="author-name">Ana Paula Santos</p><p class="author-city">Vila Velha, ES</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="cta-bg">
+        <img src="assets/cta-banner-bg.jpg" alt="" loading="lazy" width="1920" height="600" />
+        <div class="overlay"></div>
+      </div>
+      <div class="cta-content container reveal">
+        <h2 data-i18n="cta.title">Quer saber se atendemos sua região?</h2>
+        <p data-i18n="cta.subtitle">Consulte a disponibilidade de internet fibra no seu endereço e contrate agora mesmo.</p>
+        <a href="#inicio" class="cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Consultar CEP
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="faq-header reveal">
+          <span class="label" data-i18n="faq.label">FAQ</span>
+          <h2 data-i18n="faq.title">Dúvidas frequentes</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item reveal-item" style="transition-delay:0.1s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">Como funciona a instalação?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Após a contratação, nossa equipe técnica entra em contato para agendar a instalação no melhor horário para você. O processo é rápido e sem complicação.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.18s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">A velocidade contratada é garantida?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Sim! Trabalhamos com fibra óptica, que entrega velocidade real. Você recebe a velocidade contratada de acordo com as normas da Anatel.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.26s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">Tem fidelidade ou multa?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>As condições contratuais são apresentadas de forma transparente antes da contratação. Consulte nosso time para informações específicas do seu plano.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.34s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">Como funciona o desconto no débito automático?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Ao optar pelo débito automático, você recebe R$10,00 de desconto mensal em qualquer plano.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.42s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">Posso migrar do meu provedor atual?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Sim! Facilitamos todo o processo de migração. Nossa equipe cuida de tudo para que você não fique sem internet durante a transição.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.5s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">Qual a área de cobertura?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Atendemos diversas cidades de Minas Gerais e Espírito Santo, incluindo BH, Contagem, Nova Lima, Juiz de Fora, Vitória, Vila Velha e mais. Consulte seu CEP.</p></div>
+          </div>
+          <div class="faq-item reveal-item" style="transition-delay:0.58s">
+            <button class="faq-trigger" onclick="toggleFaq(this)">O Wi-Fi está incluso no plano?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer"><p>Sim! Todos os planos incluem roteador Wi-Fi para garantir a melhor experiência em toda a sua casa.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <img src="assets/algar-logo.svg" alt="Algar Telecom" />
+            <p class="sub" data-i18n="footer.rep">Parceiro autorizado Algar Telecom</p>
+          </div>
+          <p class="footer-copy" data-i18n="footer.rights">&copy; 2026 Parceiro autorizado Algar Telecom. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp button -->
+    <div class="floating-wa-wrap">
+      <span class="floating-wa-bubble">Tem alguma dúvida? Clique aqui!</span>
+      <a id="floatingWa" href="#" target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Falar via WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="coverage.js?v=7"></script>
+  <script src="scripts.js?v=7"></script>
+</body>
+</html>

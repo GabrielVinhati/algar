@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100" fill="none">
+  <text x="0" y="75" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="78" fill="#0066B3" letter-spacing="-3">Algar</text>
+  <g transform="translate(195, 22)">
+    <polygon points="0,0 32,18 0,36" fill="#00A3E0"/>
+    <polygon points="35,18 67,36 35,54" fill="#FFC72C"/>
+    <polygon points="0,40 32,58 0,76" fill="#00A551"/>
+  </g>
+  <text x="158" y="98" font-family="'Space Grotesk', sans-serif" font-weight="500" font-size="22" fill="#6B7280" letter-spacing="0">Telecom</text>
+</svg>
