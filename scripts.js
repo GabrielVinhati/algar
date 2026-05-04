@@ -117,10 +117,72 @@ applyLang();
     return inside;
   }
 
+  // Bounding boxes pré-computadas (lazy, primeira chamada de isInCoverage)
+  var __covBboxes = null;
+  function ensureBboxes() {
+    if (__covBboxes !== null) return;
+    __covBboxes = new Array(COVERAGE_POLYS.length);
+    for (var i = 0; i < COVERAGE_POLYS.length; i++) {
+      var p = COVERAGE_POLYS[i];
+      var minLng = p[0][0], maxLng = p[0][0], minLat = p[0][1], maxLat = p[0][1];
+      for (var j = 1; j < p.length; j++) {
+        if (p[j][0] < minLng) minLng = p[j][0];
+        else if (p[j][0] > maxLng) maxLng = p[j][0];
+        if (p[j][1] < minLat) minLat = p[j][1];
+        else if (p[j][1] > maxLat) maxLat = p[j][1];
+      }
+      __covBboxes[i] = [minLng, minLat, maxLng, maxLat];
+    }
+  }
+
+  // Distância em metros de (lng, lat) ao segmento p1-p2
+  function pointToSegmentMeters(lng, lat, p1, p2) {
+    var mLat = 111000;
+    var mLng = 111000 * Math.cos(lat * Math.PI / 180);
+    var dx = (p2[0] - p1[0]) * mLng;
+    var dy = (p2[1] - p1[1]) * mLat;
+    var len2 = dx * dx + dy * dy;
+    var t = 0;
+    if (len2 > 1e-9) {
+      t = ((lng - p1[0]) * mLng * dx + (lat - p1[1]) * mLat * dy) / len2;
+      if (t < 0) t = 0;
+      else if (t > 1) t = 1;
+    }
+    var px = p1[0] + t * (p2[0] - p1[0]);
+    var py = p1[1] + t * (p2[1] - p1[1]);
+    var ex = (lng - px) * mLng;
+    var ey = (lat - py) * mLat;
+    return Math.sqrt(ex * ex + ey * ey);
+  }
+
+  function distanceToPolygonMeters(lng, lat, poly) {
+    var min = Infinity;
+    for (var i = 0; i < poly.length; i++) {
+      var d = pointToSegmentMeters(lng, lat, poly[i], poly[(i + 1) % poly.length]);
+      if (d < min) min = d;
+    }
+    return min;
+  }
+
+  // Coberto se: (1) dentro de algum polígono OU (2) a até PROXIMITY_M metros da borda.
+  // O fallback de proximidade compensa imprecisão do geocoder ViaCEP/Nominatim
+  // (que pode retornar centroide do quarteirão, não o endereço exato) e dados
+  // de cobertura granulares por rua/quadra.
+  var PROXIMITY_M = 200;
   function isInCoverage(lng, lat) {
     if (typeof COVERAGE_POLYS === "undefined") return false;
+    // Pass 1: dentro de algum polígono
     for (var i = 0; i < COVERAGE_POLYS.length; i++) {
       if (pointInPolygon(lng, lat, COVERAGE_POLYS[i])) return true;
+    }
+    // Pass 2: proximidade (com bbox prefilter pra performance)
+    ensureBboxes();
+    var bboxMargin = 0.0022; // ~244m em latitude, suficiente pra threshold de 200m
+    for (var k = 0; k < COVERAGE_POLYS.length; k++) {
+      var b = __covBboxes[k];
+      if (lng < b[0] - bboxMargin || lng > b[2] + bboxMargin) continue;
+      if (lat < b[1] - bboxMargin || lat > b[3] + bboxMargin) continue;
+      if (distanceToPolygonMeters(lng, lat, COVERAGE_POLYS[k]) <= PROXIMITY_M) return true;
     }
     return false;
   }
@@ -138,6 +200,29 @@ applyLang();
 
   btn.addEventListener("click", checkCep);
 
+  // Cache localStorage pra ViaCEP + Nominatim (TTL 30 dias)
+  // Reduz latência em consultas repetidas e respeita o rate-limit do Nominatim (1 req/s)
+  var CEP_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+  function getCachedCep(cep) {
+    try {
+      var raw = localStorage.getItem("cep_" + cep);
+      if (!raw) return null;
+      var obj = JSON.parse(raw);
+      if (!obj || typeof obj.t !== "number") return null;
+      if (Date.now() - obj.t > CEP_CACHE_TTL_MS) {
+        localStorage.removeItem("cep_" + cep);
+        return null;
+      }
+      return obj;
+    } catch (e) { return null; }
+  }
+  function setCachedCep(cep, data) {
+    try {
+      var payload = { t: Date.now(), city: data.city, uf: data.uf, lat: data.lat, lng: data.lng };
+      localStorage.setItem("cep_" + cep, JSON.stringify(payload));
+    } catch (e) { /* quota cheia ou modo privado: ignora */ }
+  }
+
   function checkCep() {
     var clean = input.value.replace(/\D/g, "");
     if (clean.length < 8) return;
@@ -146,9 +231,24 @@ applyLang();
     btn.textContent = "...";
 
     var cepFormatted = clean.slice(0, 5) + "-" + clean.slice(5);
+    lastLeadContext = { cep: cepFormatted, city: "", uf: "" };
+
+    // Cache hit: pula as 2 chamadas externas
+    var cached = getCachedCep(clean);
+    if (cached) {
+      console.log("[CEP] cache hit", clean);
+      lastLeadContext.city = cached.city;
+      lastLeadContext.uf = cached.uf;
+      if (isInCoverage(cached.lng, cached.lat)) {
+        showCovered(cached.city, cepFormatted);
+      } else {
+        showNotCovered();
+      }
+      resetBtn();
+      return;
+    }
 
     // Step 1: get address from ViaCEP
-    lastLeadContext = { cep: cepFormatted, city: "", uf: "" };
     fetch("https://viacep.com.br/ws/" + clean + "/json/")
       .then(function (r) { return r.json(); })
       .then(function (data) {
@@ -167,6 +267,9 @@ applyLang();
           if (!geo || !geo.length) { showNotCovered(); return; }
           var lat = parseFloat(geo[0].lat);
           var lng = parseFloat(geo[0].lon);
+
+          // Salva no cache pra próximas consultas
+          setCachedCep(clean, { city: city, uf: data.uf, lat: lat, lng: lng });
 
           // Step 3: check if point is inside coverage polygons
           if (isInCoverage(lng, lat)) {
